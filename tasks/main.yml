@@ -1,5 +1,32 @@
 ---
 # tasks file for ansiblered-deck-ansible---
+- name: Assure PHP is installed for deck and dynamic content
+  yum:
+    name: php
+    state: latest
+
+- name: Copy PHP service file
+  template:
+    src: templates/ansible-php-deck.service
+    dest: /usr/lib/systemd/system/ansible-php-deck.service
+    owner: root
+    group: wheel
+    mode: 0644
+
+- name: Copy PHP script file
+  template:
+    src: templates/ansible-php-deck.sh
+    dest: /root/ansible-php-deck.sh
+    owner: root
+    group: wheel
+    mode: 0755
+
+- name: enable and start ansible-php-deck.service
+  systemd:
+    name: ansible-php-deck.service
+    state: started
+    enabled: yes
+
 - name: Assure our preferences files directory exists
   file:
     path: "{{ workshop_web_path }}/deck-ansible/prefs/"
@@ -35,8 +62,7 @@
 - name: "Set selinux context recursively httpd_sys_rw_content_t {{ workshop_web_path }}"
   shell: "chcon -R -t httpd_sys_rw_content_t {{ workshop_web_path }}"
   changed_when: no
-  ignore_errors: yes
-
+  failed_when: no
 
 
 
