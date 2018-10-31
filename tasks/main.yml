@@ -21,12 +21,6 @@
     group: wheel
     mode: 0755
 
-- name: enable and start ansible-php-deck.service
-  systemd:
-    name: ansible-php-deck.service
-    state: started
-    enabled: yes
-
 - name: Assure our preferences files directory exists
   file:
     path: "{{ workshop_web_path }}/deck-ansible/prefs/"
@@ -63,6 +57,17 @@
   shell: "chcon -R -t httpd_sys_rw_content_t {{ workshop_web_path }}"
   changed_when: no
   failed_when: no
+
+- name: Start service ansible-php-deck, if not started
+  service:
+    name: ansible-php-deck
+    state: started
+  tags: php
+
+- name: Enable service ansible-php-deck, if not started
+  service:
+    name: ansible-php-deck
+    enabled: yes
 
 
 
