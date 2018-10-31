@@ -31,7 +31,11 @@ if ((isset($_GET['force'])) and ($lab_limit == 2)) print "2 = No Labs, only deck
 $myfile = preg_replace("/^.*\//","",$_SERVER['PHP_SELF']);
 $mydir = preg_replace("/$myfile/","",$_SERVER['SCRIPT_FILENAME']);
 $servervar = $_SERVER['HTTP_HOST'];
-$person = preg_replace("/^(.*?)\.(.*)$/","$1",$_SERVER['HTTP_HOST']);
+
+// If we pass a parameter for person, use that.  Otherwise, use subdomain.
+$person = (isset($_GET['person']) ? addslashes($_GET['person']) : preg_replace("/^(.*?)\.(.*)$/","$1",$_SERVER['HTTP_HOST']));
+
+// If we can't find a prefs file for the person, use the default
 $custom_prefs_file = "prefs/" . $person . ".prefs.php";
 $standard_prefs_file = "prefs/default.prefs.php";
 
