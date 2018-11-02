@@ -2,7 +2,9 @@
 
 // I updated this here to be a variable so we can easily change it in other places in the deck, dynamically
 
-$module_count=1900;
+$module_count="2100+";
+$gihub_stars="33,500+";
+$download_permonth="50,000+";
 
 $dry_run = (isset($_GET['dryrun']) ? 1 : 0);
 
@@ -47,25 +49,6 @@ $standard_prefs_file = "prefs/default.prefs.php";
 
 $prefs_file = (file_exists($custom_prefs_file) ? $custom_prefs_file : $standard_prefs_file);
 require_once($prefs_file);
-
-$links =<<<ALLDONE
-
-<form id="lab1" action="/?nolabs&person=$person#">
-    <input type="submit" value="No Labs" />
-</form>
-
-<form id="lab2" action="/?labs&person=$person#">
-    <input type="submit" value="Labs Only" />
-</form>
-
-<form id="lab3" action="/?person=$person#">
-    <input type="submit" value="Both" />
-</form>
-
-ALLDONE;
-
-$links = "";
-
 
 if (! $dry_run){
 	require_once("page_first.html");
