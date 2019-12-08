@@ -62,7 +62,7 @@ ansible-playbook -i ec2.hosts GoKEV-lab-provision.yml
 
 * Changing other dynamic aspects of the content via URL:
     * `person=shadd` (if that person has a preferences file, context will switch to it.  This parallels and overrides the variable determined by a FQDN of `shadd.ansible.red` )
-    * `workshop_presenter=Shadd Gallegos` This value will override the value in the preferences file.  
+    * `workshop_presenter=Shadd%20Gallegos` This POST or GET value will override the value in the preferences file.  Currently available override values:
         * `workshop_style` (local or remote path to a style sheet)
         * `workshop_image` (Image file top be displayed on the main screen and at each red title slide
         * `workshop_name` "Ansible Essentials" or similar; is displayed on the main title slide
