@@ -40,6 +40,14 @@ foreach( $_GET as $key => $value){
 	$outvars .= "$linefront\$_GET['$key']$lineend";
 }
 
+$outvars .= "\t<tr>\n\t\t<td colspan=\"100%\"><h1>\$_REQUEST</h1></td>\n\t</tr>\n";
+foreach( $_REQUEST as $key => $value){
+	$count++;
+	$linefront = "\t<tr>\n\t\t<td>$count</td>\n\t\t<td>";
+	$lineend = "</td>\n\t\t<td>$value</td>\n\t</tr>\n";
+	$outvars .= "$linefront\$_REQUEST['$key']$lineend";
+}
+
 
 ?>
 <style type="text/css">

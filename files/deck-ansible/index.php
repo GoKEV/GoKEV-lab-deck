@@ -50,6 +50,25 @@ $standard_prefs_file = "prefs/default.prefs.php";
 $prefs_file = (file_exists($custom_prefs_file) ? $custom_prefs_file : $standard_prefs_file);
 require_once($prefs_file);
 
+// UNSET _REQUEST VARIABLES FOR BLANK VALUES ON REQUIRED FIELDS
+
+if ( !isset($_REQUEST['workshop_image']) or empty($_REQUEST['workshop_image']) ){
+//	unset($_REQUEST['workshop_image']);
+}
+
+if ( !isset($_REQUEST['workshop_style']) or empty($_REQUEST['workshop_style']) ){
+//	unset($_REQUEST['workshop_style']);
+}
+
+$workshop_style = (isset($_REQUEST['workshop_style']) ? $_REQUEST['workshop_style'] : $workshop_style );
+$workshop_image = (isset($_REQUEST['workshop_image']) ? $_REQUEST['workshop_image'] : $workshop_image );
+$workshop_name = (isset($_REQUEST['workshop_name']) ? $_REQUEST['workshop_name'] : $workshop_name );
+$workshop_presenter = (isset($_REQUEST['workshop_presenter']) ? $_REQUEST['workshop_presenter'] : $workshop_presenter );
+$workshop_title = (isset($_REQUEST['workshop_title']) ? $_REQUEST['workshop_title'] : $workshop_title );
+$workshop_message = (isset($_REQUEST['workshop_message']) ? $_REQUEST['workshop_message'] : $workshop_message );
+$terminal_prompt = (isset($_REQUEST['terminal_prompt']) ? $_REQUEST['terminal_prompt'] : $workshop_prompt );
+
+
 if (! $dry_run){
 	require_once("page_first.html");
 }else{
@@ -64,13 +83,14 @@ RUNNING IN DRY RUN with LAB LIMIT SET TO <?=$lab_limit?>
 ######################################################
 
 VARIABLES, SOURCED FROM <?=$prefs_file?><br>
-$workshop_style = <?=$workshop_style?><br>
-$workshop_image = <?=$workshop_image?><br>
-$workshop_name = <?=$workshop_name?><br>
-$workshop_presenter = <?=$workshop_presenter?><br>
-$workshop_title = <?=$workshop_title?><br>
-$workshop_message = <?=$workshop_message?><br>
-$terminal_prompt = <?=$terminal_prompt?><br>
+
+$workshop_style = <?=isset($_REQUEST['workshop_style']) ? '(overridden by request vars) ' . $workshop_style : $workshop_style ?><br>
+$workshop_image = <?=isset($_REQUEST['workshop_image']) ? '(overridden by request vars) ' . $workshop_image : $workshop_image ?><br>
+$workshop_name = <?=isset($_REQUEST['workshop_name']) ? '(overridden by request vars) ' . $workshop_name : $workshop_name ?><br>
+$workshop_presenter = <?=isset($_REQUEST['workshop_presenter']) ? '(overridden by request vars) ' . $workshop_presenter : $workshop_presenter ?><br>
+$workshop_title = <?=isset($_REQUEST['workshop_title']) ? '(overridden by request vars) ' . $workshop_title : $workshop_title ?><br>
+$workshop_message = <?=isset($_REQUEST['workshop_message']) ? '(overridden by request vars) ' . $workshop_message : $workshop_message ?><br>
+$terminal_prompt = <?=isset($_REQUEST['terminal_prompt']) ? '(overridden by request vars) ' . $terminal_prompt : $terminal_prompt ?><br>
 
 	<?php
 }
