@@ -63,13 +63,13 @@ ansible-playbook -i ec2.hosts GoKEV-lab-provision.yml
 * Changing other dynamic aspects of the content via URL:
     * `person=shadd` (if that person has a preferences file, context will switch to it.  This parallels and overrides the variable determined by a FQDN of `shadd.ansible.red` )
     * `workshop_presenter=Shadd Gallegos` This value will override the value in the preferences file.  
-    ** `workshop_style` (local or remote path to a style sheet)
-    ** `workshop_image` (Image file top be displayed on the main screen and at each red title slide
-    ** `workshop_name` "Ansible Essentials" or similar; is displayed on the main title slide
-    ** `workshop_presenter` Shadd Gallegos (the presenter)
-    ** `workshop_title` Senior Specialist Solutions Architect (position or title of the presenter)
-    ** `workshop_message` Email address or contact info of the presenter (displays as the third line on presenter details of title slide)
-    ** `workshop_prompt` This is the display of the terminal prompt on the slides that show a terminal window
+        * `workshop_style` (local or remote path to a style sheet)
+        * `workshop_image` (Image file top be displayed on the main screen and at each red title slide
+        * `workshop_name` "Ansible Essentials" or similar; is displayed on the main title slide
+        * `workshop_presenter` Shadd Gallegos (the presenter)
+        * `workshop_title` Senior Specialist Solutions Architect (position or title of the presenter)
+        * `workshop_message` Email address or contact info of the presenter (displays as the third line on presenter details of title slide)
+        * `workshop_prompt` This is the display of the terminal prompt on the slides that show a terminal window
     * `labs` :: `http://ansible.red/deck-ansible/?labs` (no value is required - simply passing this empty variable forces labs-only display mode and will not show the deck
     * `nolabs` :: `http://ansible.red/deck-ansible/?nolabs` (no value is required - opposite of `labs`, this variable forces deck-only display mode and will not show the labs
     * without `labs` or `nolabs` the default behavior is to show labs at the end of each section.
