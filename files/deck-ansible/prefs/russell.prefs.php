@@ -5,9 +5,9 @@
 $workshop_style = 'css/ansible.css';
 $workshop_image = 'images/ansible-logo.png';
 $workshop_name = 'Ansible Essentials Workshop';
-$workshop_presenter = 'Mike Savage';
-$workshop_title = 'Solutions Architect, Cloud, Channel Sales';
-$workshop_message = 'msavage@redhat.com';
-$terminal_prompt = '[msavage@redhat] $';
+$workshop_presenter = 'Russell Pavlicek';
+$workshop_title = 'Cloud Solutions Architect';
+$workshop_message = 'rpavlice@redhat.com';
+$terminal_prompt = '[rpavlice@redhat] $';
 
 ?>

@@ -2,7 +2,7 @@
 
 // I updated this here to be a variable so we can easily change it in other places in the deck, dynamically
 
-$module_count="2100+";
+$module_count="2921+";
 $gihub_stars="33,500+";
 $download_permonth="500,000+";
 
@@ -62,6 +62,16 @@ RUNNING IN DRY RUN with LAB LIMIT SET TO <?=$lab_limit?>
  2 = No Labs, only deck		/deck-ansible/?nolabs/
 
 ######################################################
+
+VARIABLES, SOURCED FROM <?=$prefs_file?><br>
+$workshop_style = <?=$workshop_style?><br>
+$workshop_image = <?=$workshop_image?><br>
+$workshop_name = <?=$workshop_name?><br>
+$workshop_presenter = <?=$workshop_presenter?><br>
+$workshop_title = <?=$workshop_title?><br>
+$workshop_message = <?=$workshop_message?><br>
+$terminal_prompt = <?=$terminal_prompt?><br>
+
 	<?php
 }
 

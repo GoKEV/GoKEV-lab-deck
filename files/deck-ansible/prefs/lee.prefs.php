@@ -1,5 +1,6 @@
 <?php
 
+$workshop_style = 'css/ansible.css';
 $workshop_image = 'images/ansible-logo.png';
 $workshop_name = 'Ansible Essentials Workshop';
 $workshop_presenter = 'Lee Rich';

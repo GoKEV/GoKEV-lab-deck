@@ -1,10 +1,24 @@
 <?php
 
-$workshop_image = 'images/ansible-logo.png';
-$workshop_name = 'Ansible Essentials Workshop';
-$workshop_presenter = 'DEFAULT SLIDE';
-$workshop_title = 'This slide is only here so your HTTPD works for local editing.';
-$workshop_message = 'This file will overwritten with Ansible vars in DEFAULTS';
+$workshop_style = 'css/ansible.css';
+
+$workshop_image =<<<ALLDONE
+images/ansible-logo.png
+ALLDONE;
+
+$workshop_name =<<<ALLDONE
+Ansible Essentials Workshop
+ALLDONE;
+
+$workshop_presenter =<<<ALLDONE
+ALLDONE;
+
+$workshop_title =<<<ALLDONE
+ALLDONE;
+
+$workshop_message =<<<ALLDONE
+ALLDONE;
+
 $terminal_prompt = '[ansible@redhat] $';
 
 ?>
